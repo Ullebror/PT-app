@@ -1,4 +1,4 @@
-import Customerlist from "./components/Customerlist";
+import {Link, Outlet } from "react-router-dom";
 import './App.css'
 
 function App() {
@@ -6,7 +6,11 @@ function App() {
 
   return (
     <>
-      <Customerlist />
+      <nav>
+        <Link to={"/"}>Customers</Link>
+        <Link to={"/Trainings"}>Training</Link>
+      </nav>
+      <Outlet />      
     </>
   )
 }
