@@ -1,18 +1,13 @@
-import {Link, Outlet } from "react-router-dom";
-import './App.css'
+
+import TabApp from './components/TabApp';
+
 
 function App() {
-  
 
   return (
-    <>
-      <nav>
-        <Link to={"/"}>Customers</Link>
-        <Link to={"/Trainings"}>Training</Link>
-      </nav>
-      <Outlet />      
-    </>
+    <TabApp />
   )
+  
 }
 
 export default App
