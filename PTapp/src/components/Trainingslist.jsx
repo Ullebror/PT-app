@@ -3,6 +3,7 @@ import { AgGridReact } from "ag-grid-react";
 import Button from '@mui/material/Button';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import Snackbar from '@mui/material/Snackbar';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -10,9 +11,25 @@ import dayjs from 'dayjs';
 
 function Trainingslist() {
     const [trainings, setTrainings] = useState([]);
+    const [open, setOpen] = useState(false);
 
 function fullNameGetter(params) {
     return params.data.customer.firstname + " " + params.data.customer.lastname;
+}
+
+const deleteTraining = (id) => {
+    if (window.confirm("Are you sure?")) {
+        fetch('https://traineeapp.azurewebsites.net/trainings/' + {id}, {method: 'DELETE'})
+        .then(response => {
+            if(response.ok){
+                setOpen(true);
+                fetchTrainings();
+            } else {
+                throw new Error("error in deletion: " + response.statusText);
+            }
+        })
+        .catch(err => console.error(err));
+    }
 }
 
 
@@ -42,7 +59,11 @@ function fullNameGetter(params) {
             sortable: true,
             filter: true,
         },
-
+        {
+            cellRenderer: params => <Button onClick={() => deleteTraining(params.data.id)}>Delete</Button>,
+             width: 120
+        },
+        
     ]);
 
     useEffect(() => {
@@ -75,6 +96,12 @@ function fullNameGetter(params) {
                  />
 
             </div>
+            <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={() => setOpen(false)}
+                message="Training deleted succesfully"
+            />
         </LocalizationProvider >
     );
 }
