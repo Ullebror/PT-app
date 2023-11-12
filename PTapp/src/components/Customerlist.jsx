@@ -8,6 +8,7 @@ import EditCustomer from './EditCustomer';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
+import AddTraining from './AddTraining';
 
 function Customerlist() {
     const [customers, setCustomers] = useState([]);
@@ -69,6 +70,11 @@ function Customerlist() {
             sortable: true,
             filter: true, 
         },
+        {
+            cellRenderer: params => <AddTraining customerdata={params.data} />,
+            
+        },
+
         {
             cellRenderer: params => <EditCustomer customerdata={params.data} fetchCustomers={fetchCustomers} />,
             width: 120
