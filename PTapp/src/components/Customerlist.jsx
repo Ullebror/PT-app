@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AgGridReact } from "ag-grid-react";
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
+import EditCustomer from './EditCustomer';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -65,6 +66,10 @@ function Customerlist() {
             field: 'phone',
             sortable: true,
             filter: true, 
+        },
+        {
+            cellRenderer: params => <EditCustomer customerdata={params.data} fetchCustomers={fetchCustomers} />,
+            width: 120
         },
         {
             cellRenderer: params => <Button onClick={() => deleteCustomer(params.data.links[0].href)}>Delete</Button>,
