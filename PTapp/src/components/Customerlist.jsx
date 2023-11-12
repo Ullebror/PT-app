@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { AgGridReact } from "ag-grid-react";
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
+
+import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 
 import "ag-grid-community/styles/ag-grid.css";
@@ -96,8 +98,8 @@ function Customerlist() {
 
     return(
         <>
-            
-            <div className='ag-theme-material' style={{ width: '104%', height: 600}}>
+            <AddCustomer fetchCustomers={fetchCustomers} />            
+            <div className='ag-theme-material' style={{ width: '100%', height: 600}}>
                 <AgGridReact
                     rowData={customers}
                     columnDefs={columnDefs}
