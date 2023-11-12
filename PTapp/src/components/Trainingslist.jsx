@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AgGridReact } from "ag-grid-react";
+import Button from '@mui/material/Button';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
@@ -16,17 +17,32 @@ function fullNameGetter(params) {
 
 
     const [columnDefs] = useState([
-        {   field: 'date', 
+        {   
+            field: 'date', 
             sortable: true, 
             filter: true, 
             valueFormatter: function (params) {
             return dayjs(params.value).format('DD.MM.YYYY HH:mm')
             }, 
         },
-        {field: 'duration', sortable: true, filter: true },
-        {field: 'activity', sortable: true, filter: true },
-        {headerName:'Customer', field: 'firstname&lastname', valueGetter: fullNameGetter, sortable: true, filter: true}
-        
+        {
+            field: 'duration',
+            sortable: true,
+            filter: true, 
+        },
+        {
+            field: 'activity',
+            sortable: true,
+            filter: true, 
+        },
+        {
+            field: 'firstname&lastname',
+            headerName:'Customer',
+            valueGetter: fullNameGetter,
+            sortable: true,
+            filter: true,
+        },
+
     ]);
 
     useEffect(() => {

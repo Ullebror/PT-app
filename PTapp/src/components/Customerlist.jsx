@@ -9,13 +9,45 @@ function Customerlist() {
 
 
     const [columnDefs] = useState([
-        {headerName: 'First Name', field: 'firstname', sortable: true, filter: true },
-        {headerName: 'Last Name',field: 'lastname', sortable: true, filter: true },
-        {headerName: 'Street Address', field: 'streetaddress', sortable: true, filter: true },
-        {field: 'postcode', sortable: true, filter: true, width: 120 },
-        {field: 'city', sortable: true, filter: true },
-        {field: 'email', sortable: true, filter: true },
-        {field: 'phone', sortable: true, filter: true },
+        {
+            field: 'firstname',
+            headerName: 'First Name',
+            sortable: true, 
+            filter: true, 
+        },
+        {
+            field: 'lastname',
+            headerName: 'Last Name', 
+            sortable: true, 
+            filter: true, 
+        },
+        { 
+            field: 'streetaddress',
+            headerName: 'Street Address',
+            sortable: true,
+            filter: true, 
+        },
+        {
+            field: 'postcode',
+            sortable: true,
+            filter: true,
+            width: 120, 
+        },
+        {
+            field: 'city',
+            sortable: true,
+            filter: true, 
+        },
+        {
+            field: 'email',
+            sortable: true,
+            filter: true, 
+        },
+        {
+            field: 'phone',
+            sortable: true,
+            filter: true, 
+        },
 
     ]);
 
@@ -44,9 +76,7 @@ function Customerlist() {
                     columnDefs={columnDefs}
                     pagination={true}
                     paginationAutoPageSize={true}
-
                  />
-
             </div>
         </>
     );
