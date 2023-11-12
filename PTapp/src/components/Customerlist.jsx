@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AgGridReact } from "ag-grid-react";
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -47,6 +49,10 @@ function Customerlist() {
             field: 'phone',
             sortable: true,
             filter: true, 
+        },
+        {
+            cellRenderer: params => <Button onClick={() => deleteCustomer(params.data.id)}>Delete</Button>,
+             width: 120
         },
 
     ]);

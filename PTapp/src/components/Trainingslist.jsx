@@ -19,7 +19,8 @@ function fullNameGetter(params) {
 
 const deleteTraining = (id) => {
     if (window.confirm("Are you sure?")) {
-        fetch('https://traineeapp.azurewebsites.net/trainings/' + {id}, {method: 'DELETE'})
+        const url = 'https://traineeapp.azurewebsites.net/api/trainings/' + id
+        fetch(url, {method: 'DELETE'})
         .then(response => {
             if(response.ok){
                 setOpen(true);
@@ -60,7 +61,7 @@ const deleteTraining = (id) => {
             filter: true,
         },
         {
-            cellRenderer: params => <Button onClick={() => deleteTraining(params.data.id)}>Delete</Button>,
+            cellRenderer: params => <Button onClick={() => deleteTraining(params.data.id.toString())}>Delete</Button>,
              width: 120
         },
         
