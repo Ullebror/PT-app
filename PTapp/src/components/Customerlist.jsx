@@ -8,6 +8,22 @@ import "ag-grid-community/styles/ag-theme-material.css";
 
 function Customerlist() {
     const [customers, setCustomers] = useState([]);
+    const [open, setOpen] = useState(false);
+
+    const deleteCustomer = (url) => {
+        if (window.confirm("Are you sure?")) {
+            fetch(url, {method: 'DELETE'})
+            .then(response => {
+                if(response.ok){
+                    setOpen(true);
+                    fetchCustomers();
+                } else {
+                    throw new Error("error in deletion: " + response.statusText);
+                }
+            })
+            .catch(err => console.error(err));
+        }
+    }
 
 
     const [columnDefs] = useState([
@@ -51,7 +67,7 @@ function Customerlist() {
             filter: true, 
         },
         {
-            cellRenderer: params => <Button onClick={() => deleteCustomer(params.data.id)}>Delete</Button>,
+            cellRenderer: params => <Button onClick={() => deleteCustomer(params.data.links[0].href)}>Delete</Button>,
              width: 120
         },
 
@@ -84,6 +100,12 @@ function Customerlist() {
                     paginationAutoPageSize={true}
                  />
             </div>
+            <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={() => setOpen(false)}
+                message="Customer deleted succesfully"
+            />
         </>
     );
 }
