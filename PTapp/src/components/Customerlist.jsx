@@ -36,6 +36,7 @@ function Customerlist() {
             headerName: 'First Name',
             sortable: true, 
             filter: true, 
+            width: 140,
         },
         {
             field: 'lastname',
@@ -59,6 +60,7 @@ function Customerlist() {
             field: 'city',
             sortable: true,
             filter: true, 
+            width: 120,
         },
         {
             field: 'email',
@@ -69,19 +71,20 @@ function Customerlist() {
             field: 'phone',
             sortable: true,
             filter: true, 
+            width: 140,
         },
         {
-            cellRenderer: params => <AddTraining customerdata={params.data} />,
+            cellRenderer: params => <AddTraining customerdata={params.data} />, width: 160
             
         },
 
         {
             cellRenderer: params => <EditCustomer customerdata={params.data} fetchCustomers={fetchCustomers} />,
-            width: 120
+            width: 100
         },
         {
             cellRenderer: params => <Button onClick={() => deleteCustomer(params.data.links[0].href)}>Delete</Button>,
-             width: 120
+             width: 100
         },
 
     ]);

@@ -47,6 +47,7 @@ const deleteTraining = (id) => {
             field: 'duration',
             sortable: true,
             filter: true, 
+            width: 115,
         },
         {
             field: 'activity',
