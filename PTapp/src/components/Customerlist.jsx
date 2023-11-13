@@ -75,17 +75,17 @@ function Customerlist() {
         },
         //sends the parameters as customerdata to AddTraining
         {
-            cellRenderer: params => <AddTraining customerdata={params.data} />, width: 160
+            cellRenderer: params => <AddTraining customerdata={params.data} />, headerName: 'Functionalities' , width: 163
             
         },
 
         {
             cellRenderer: params => <EditCustomer customerdata={params.data} fetchCustomers={fetchCustomers} />,
-            width: 100
+            width: 90
         },
         {
             cellRenderer: params => <Button onClick={() => deleteCustomer(params.data.links[0].href)}>Delete</Button>,
-             width: 100
+             width: 90
         },
 
     ]);
