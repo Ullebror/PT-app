@@ -3,6 +3,8 @@ import Customerlist from './Customerlist';
 import Trainingslist from './Trainingslist';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Container from '@mui/material/Container';
+import AppBar from '@mui/material/AppBar';
 
 function TabApp() {
     const [value, setValue] = useState('one');
@@ -10,14 +12,17 @@ function TabApp() {
         setValue(value);
     }
 
-    return (<div>
-        <Tabs value={value} onChange={handleChange}>
-            <Tab value="one" label="Customers" />
-            <Tab value="two" label="Trainings" />
-        </Tabs>
-        {value === 'one' &&  <div><Customerlist /></div>}
-        {value === 'two' &&  <div> <Trainingslist /></div>}
-    </div>
+    return (
+    <Container>
+        <AppBar color='transparent'>
+            <Tabs value={value} onChange={handleChange}>
+                <Tab value="one" label="Customers" />
+                <Tab value="two" label="Trainings" />
+            </Tabs>
+            {value === 'one' &&  <div><Customerlist /></div>}
+            {value === 'two' &&  <div> <Trainingslist /></div>}
+        </AppBar>
+    </Container>
     );
 }
 
