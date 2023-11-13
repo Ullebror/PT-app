@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
+//Customerdata and fetchCustomers as props
 export default function EditCustomer({ customerdata, fetchCustomers }) {
     const [customer, setCustomer] = useState({
         firstname: '',

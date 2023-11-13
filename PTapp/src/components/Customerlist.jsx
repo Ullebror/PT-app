@@ -73,6 +73,7 @@ function Customerlist() {
             filter: true, 
             width: 140,
         },
+        //sends the parameters as customerdata to AddTraining
         {
             cellRenderer: params => <AddTraining customerdata={params.data} />, width: 160
             

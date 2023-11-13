@@ -13,6 +13,7 @@ function Trainingslist() {
     const [trainings, setTrainings] = useState([]);
     const [open, setOpen] = useState(false);
 
+//Gets the values of customers first name and last name and combines them to one column in the table
 function fullNameGetter(params) {
     return params.data.customer.firstname + " " + params.data.customer.lastname;
 }
@@ -39,6 +40,7 @@ const deleteTraining = (id) => {
             field: 'date', 
             sortable: true, 
             filter: true, 
+            //formats the value in the date column to that format
             valueFormatter: function (params) {
             return dayjs(params.value).format('DD.MM.YYYY HH:mm')
             }, 
