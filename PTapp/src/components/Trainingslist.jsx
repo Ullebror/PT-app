@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { AgGridReact } from "ag-grid-react";
-import Button from '@mui/material/Button';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+
+import dayjs from 'dayjs';
 import Snackbar from '@mui/material/Snackbar';
+import Button from '@mui/material/Button';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
-import dayjs from 'dayjs';
+
 
 function Trainingslist() {
     const [trainings, setTrainings] = useState([]);

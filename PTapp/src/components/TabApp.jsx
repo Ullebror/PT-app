@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import Customerlist from './Customerlist';
 import Trainingslist from './Trainingslist';
+
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Container from '@mui/material/Container';

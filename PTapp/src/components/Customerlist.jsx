@@ -5,10 +5,11 @@ import Snackbar from '@mui/material/Snackbar';
 
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
+import AddTraining from './AddTraining';
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
-import AddTraining from './AddTraining';
+
 
 function Customerlist() {
     const [customers, setCustomers] = useState([]);
