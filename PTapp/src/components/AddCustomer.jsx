@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+
 
 export default function AddCustomer({ fetchCustomers }) {
     const [customer, setCustomer] = useState({
@@ -46,7 +48,9 @@ export default function AddCustomer({ fetchCustomers }) {
 
     return(
         <>
-            <Button variant="outlined" onClick = {handleClickOpen}>Add Customer</Button>
+            
+                <Button variant="contained"  onClick = {handleClickOpen}><AddIcon />New Customer</Button>
+            
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>New Customer</DialogTitle>
                 <DialogContent>

@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -57,7 +60,11 @@ export default function AddTraining({ customerdata }) {
     return(
         <>
             <LocalizationProvider dateAdapter={AdapterDayjs} >
-                <Button variant="outlined" onClick = {handleClickOpen}>Add Training</Button>
+            <Tooltip title="Add training">
+                <IconButton>
+                    <AddIcon color="primary" onClick = {handleClickOpen}></AddIcon>
+                </IconButton>
+            </Tooltip>
                 <Dialog open={open} onClose={handleClose}>
                     <DialogTitle>New Training</DialogTitle>
                     <DialogContent>

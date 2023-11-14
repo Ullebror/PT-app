@@ -5,7 +5,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import dayjs from 'dayjs';
 import Snackbar from '@mui/material/Snackbar';
-import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -15,43 +18,44 @@ function Trainingslist() {
     const [trainings, setTrainings] = useState([]);
     const [open, setOpen] = useState(false);
 
-//Gets the values of customers first name and last name and combines them to one column in the table
-function fullNameGetter(params) {
-    return params.data.customer.firstname + " " + params.data.customer.lastname;
-}
-
-const deleteTraining = (id) => {
-    if (window.confirm("Are you sure?")) {
-        const url = 'https://traineeapp.azurewebsites.net/api/trainings/' + id
-        fetch(url, {method: 'DELETE'})
-        .then(response => {
-            if(response.ok){
-                setOpen(true);
-                fetchTrainings();
-            } else {
-                throw new Error("error in deletion: " + response.statusText);
-            }
-        })
-        .catch(err => console.error(err));
+    //Gets the values of customers first name and last name and combines them to one column in the table
+    function fullNameGetter(params) {
+        return params.data.customer.firstname + " " + params.data.customer.lastname;
     }
-}
 
+    //calls the API to delete one training
+    const deleteTraining = (id) => {
+        if (window.confirm("Are you sure?")) {
+            const url = 'https://traineeapp.azurewebsites.net/api/trainings/' + id
+            fetch(url, {method: 'DELETE'})
+            .then(response => {
+                if(response.ok){
+                    setOpen(true);
+                    fetchTrainings();
+                } else {
+                    throw new Error("error in deletion: " + response.statusText);
+                }
+            })
+            .catch(err => console.error(err));
+        }
+    }
 
+    //creates the column definitions.
     const [columnDefs] = useState([
         {   
             field: 'date', 
             sortable: true, 
-            filter: true, 
+            filter: true,
             //formats the value in the date column to that format
             valueFormatter: function (params) {
             return dayjs(params.value).format('DD.MM.YYYY HH:mm')
-            }, 
+            },
         },
         {
             field: 'duration',
             sortable: true,
             filter: true, 
-            width: 115,
+            width: 120,
         },
         {
             field: 'activity',
@@ -66,8 +70,13 @@ const deleteTraining = (id) => {
             filter: true,
         },
         {
-            cellRenderer: params => <Button onClick={() => deleteTraining(params.data.id.toString())}>Delete</Button>,
-             width: 120
+            cellRenderer: params => 
+                <Tooltip title="Delete">
+                    <IconButton>
+                        <DeleteIcon color="warning" onClick={() => deleteTraining(params.data.id.toString())}></DeleteIcon>
+                    </IconButton>
+                </Tooltip>,
+             width: 90
         },
         
     ]);
@@ -91,6 +100,7 @@ const deleteTraining = (id) => {
 
     return(
         <LocalizationProvider dateAdapter={AdapterDayjs} >
+            <div className="" color="primary"> Search dates in YYYY-MM-DD format </div>
             
             <div className='ag-theme-material' style={{ width: '100%', height: 600}}>
                 <AgGridReact

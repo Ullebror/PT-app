@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
+import EditIcon from '@mui/icons-material/Edit';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -57,7 +60,12 @@ export default function EditCustomer({ customerdata, fetchCustomers }) {
 
     return(
         <>
-            <Button size="small" onClick = {handleClickOpen}>Edit</Button>
+            <Tooltip title="Edit customer">
+                <IconButton>
+                    <EditIcon color="primary" onClick = {handleClickOpen}></EditIcon>
+                </IconButton>
+            </Tooltip>
+
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Update Customer</DialogTitle>
                 <DialogContent>
