@@ -1,9 +1,19 @@
-import { useState, useEffect } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useCallback,
+    useMemo,
+    useRef,
+     } from 'react';
 import { AgGridReact } from "ag-grid-react";
+
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Snackbar from '@mui/material/Snackbar';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
@@ -77,7 +87,8 @@ function Customerlist() {
         },
         //sends the parameters as customerdata to AddTraining
         {
-            cellRenderer: params => <AddTraining customerdata={params.data} />, width: 70
+            cellRenderer: params => <AddTraining customerdata={params.data} />,
+            width: 200,
             
         },
 
@@ -106,14 +117,52 @@ function Customerlist() {
         })
         .then(responseData => setCustomers(responseData.content))
         .catch(err => console.error(err))
+        
     }
+
+    
+    const gridRef = useRef();
+    const defaultColDef = useMemo(() => {
+        return {
+            editable: true,
+            resizable: true,
+            minWidth: 100,
+            flex: 1,
+        };
+    }, []);
+
+   const paramsCsv = {
+        columnKeys: ['firstname','lastname,','streetaddress','postcode', 'city','email','phone'],
+        fileName: "Customers.csv"
+    }
+    const exportCSV = useCallback(() => {
+        gridRef.current.api.exportDataAsCsv(paramsCsv);
+      }, []);
 
     return(
         <>
-            <AddCustomer fetchCustomers={fetchCustomers} />            
+            <Box>
+                <Grid container alignItems="flex-end">
+                    <Grid container item xs={4} alignItems="flex-end" >
+                        <Tooltip title="Download CSV">
+                            <IconButton onClick={exportCSV}>
+                                <FileDownloadIcon color="success" ></FileDownloadIcon>
+                            </IconButton>
+                        </Tooltip>
+                    </Grid>
+                    <Grid container item xs={8} justifyContent="flex-end">
+                        <AddCustomer fetchCustomers={fetchCustomers} />
+                    </Grid>
+                </Grid>
+            </Box>      
             <div className='ag-theme-material' style={{ width: '100%', height: 600}}>
+                
+                
                 <AgGridReact
+                    ref={gridRef}
                     rowData={customers}
+                    defaultColDef={defaultColDef}
+                    suppressExcelExport={true}
                     columnDefs={columnDefs}
                     pagination={true}
                     paginationAutoPageSize={true}
