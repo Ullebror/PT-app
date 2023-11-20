@@ -72,8 +72,8 @@ function Trainingslist() {
         {
             cellRenderer: params => 
                 <Tooltip title="Delete">
-                    <IconButton>
-                        <DeleteIcon color="warning" onClick={() => deleteTraining(params.data.id.toString())}></DeleteIcon>
+                    <IconButton onClick={() => deleteTraining(params.data.id.toString())}>
+                        <DeleteIcon color="warning" ></DeleteIcon>
                     </IconButton>
                 </Tooltip>,
              width: 90

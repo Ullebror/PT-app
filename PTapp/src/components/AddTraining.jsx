@@ -61,8 +61,8 @@ export default function AddTraining({ customerdata }) {
         <>
             <LocalizationProvider dateAdapter={AdapterDayjs} >
             <Tooltip title="Add training">
-                <IconButton>
-                    <AddIcon color="primary" onClick = {handleClickOpen}></AddIcon>
+                <IconButton onClick = {handleClickOpen}>
+                    <AddIcon color="primary" ></AddIcon>
                 </IconButton>
             </Tooltip>
                 <Dialog open={open} onClose={handleClose}>

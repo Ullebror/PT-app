@@ -97,7 +97,13 @@ function Customerlist() {
             width: 70,
         },
         {
-            cellRenderer: params => (<Tooltip title="Delete"><IconButton onClick={() => deleteCustomer(params.data.links[0].href)}><DeleteIcon color="warning"></DeleteIcon></IconButton></Tooltip>),
+            cellRenderer: params => 
+                (<Tooltip title="Delete">
+                    <IconButton onClick={() => deleteCustomer(params.data.links[0].href)}>
+                        <DeleteIcon color="warning">
+                        </DeleteIcon>
+                    </IconButton>
+                </Tooltip>),
              width: 70,
         },
 

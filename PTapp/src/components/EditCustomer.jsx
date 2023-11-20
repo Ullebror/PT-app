@@ -61,8 +61,8 @@ export default function EditCustomer({ customerdata, fetchCustomers }) {
     return(
         <>
             <Tooltip title="Edit customer">
-                <IconButton>
-                    <EditIcon color="primary" onClick = {handleClickOpen}></EditIcon>
+                <IconButton onClick = {handleClickOpen}>
+                    <EditIcon color="primary" ></EditIcon>
                 </IconButton>
             </Tooltip>
 

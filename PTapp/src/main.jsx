@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Customerlist from './components/Customerlist.jsx';
 import Trainingslist from './components/Trainingslist.jsx';
+import MyCalendar from './components/MyCalendar.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
     {
       path: "trainings",
       element: <Trainingslist />,
-    }
+    },
+    {
+      path: "calendar",
+      element: <MyCalendar />,
+    },
   ]
   },
   ]);
