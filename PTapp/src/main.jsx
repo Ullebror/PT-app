@@ -9,7 +9,7 @@ import MyCalendar from './components/MyCalendar.jsx';
 
 const router = createBrowserRouter([
   {
-  path: "/",
+  path: "/pt-app/",
   element: <App />,
   children: [
     {

@@ -1,6 +1,6 @@
 {
   "name": "ptapp",
-  "homepage":"https://Ullebror.github.io/pt-app",
+  "homepage": "https://Ullebror.github.io/pt-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -28,7 +28,7 @@
     "react-big-calendar": "^1.8.5",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
