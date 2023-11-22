@@ -25,7 +25,7 @@ export default function AddTraining({ customerdata }) {
     
     const changeDateFunc = (date) => {
         setTraining({...training, date: date.toISOString()})
-      }
+    };
 
     const [open, setOpen] = useState(false);
 
@@ -37,7 +37,7 @@ export default function AddTraining({ customerdata }) {
     
     const handleClose = () => {
         setOpen(false);
-    }
+    };
 
     const handleSave = () => {
         setTraining({...training, customer: customerdata});
@@ -55,7 +55,7 @@ export default function AddTraining({ customerdata }) {
         .catch(err => console.error(err))
 
         handleClose();
-    }
+    };
 
     return(
         <>

@@ -10,7 +10,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 
-
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
 
@@ -39,7 +38,7 @@ function Trainingslist() {
             })
             .catch(err => console.error(err));
         }
-    }
+    };
 
     //creates the column definitions.
     const [columnDefs] = useState([
@@ -97,7 +96,7 @@ function Trainingslist() {
         })
         .then(responseData => setTrainings(responseData))
         .catch(err => console.error(err))
-    }
+    };
     
 
     return(

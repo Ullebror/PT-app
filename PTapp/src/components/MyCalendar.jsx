@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 
-import {
+import 
+{
     Calendar,
     Views,
-    dayjsLocalizer } from 'react-big-calendar';
-import dayjs from 'dayjs';
+    dayjsLocalizer 
+} 
+from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import dayjs from 'dayjs';
 
 
 
@@ -17,7 +20,7 @@ function MyCalendar() {
 
     useEffect(() => {
         fetchTrainings();
-    },[])
+    },[]);
 
 
     const fetchTrainings = () => {
@@ -40,7 +43,7 @@ function MyCalendar() {
         ))
         .catch(err => console.error(err))
         
-    }
+    };
  
     return (
         <div>

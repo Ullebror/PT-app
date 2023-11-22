@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
@@ -8,7 +9,6 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import Snackbar from '@mui/material/Snackbar';
 
 //Customerdata and fetchCustomers as props
 export default function EditCustomer({ customerdata, fetchCustomers }) {
@@ -57,7 +57,7 @@ export default function EditCustomer({ customerdata, fetchCustomers }) {
         .catch(err => console.error(err))
 
         handleClose();
-    }
+    };
 
     return(
         <>
@@ -131,9 +131,7 @@ export default function EditCustomer({ customerdata, fetchCustomers }) {
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleSave}>Save</Button>
                 </DialogActions>
-            </Dialog>
-            
-        
+            </Dialog>        
         </>
     );
 }

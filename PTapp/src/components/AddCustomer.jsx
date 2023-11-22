@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
@@ -27,7 +28,7 @@ export default function AddCustomer({ fetchCustomers }) {
     
     const handleClose = () => {
         setOpen(false);
-    }
+    };
 
     const handleSave = () => {
         fetch('https://traineeapp.azurewebsites.net/api/customers', {
@@ -44,12 +45,12 @@ export default function AddCustomer({ fetchCustomers }) {
         .catch(err => console.error(err))
 
         handleClose();
-    }
+    };
 
     return(
         <>
             
-                <Button variant="contained"  onClick = {handleClickOpen}><AddIcon />New Customer</Button>
+            <Button variant="contained"  onClick = {handleClickOpen}><AddIcon />New Customer</Button>
             
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>New Customer</DialogTitle>

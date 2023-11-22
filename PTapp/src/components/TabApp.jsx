@@ -14,9 +14,10 @@ import Statistics from './Statistics';
 
 function TabApp() {
     const [value, setValue] = useState('one');
+
     const handleChange = (event, value) => {
         setValue(value);
-    }
+    };
 
     return (
     <Container>
@@ -33,8 +34,7 @@ function TabApp() {
             {value === 'one' &&  <div><Customerlist /></div>}
             {value === 'two' &&  <div> <Trainingslist /></div>}
             {value === 'three' &&  <div> <MyCalendar /></div>}
-            {value === 'four' &&  <div> <Statistics /></div>}
-            
+            {value === 'four' &&  <div> <Statistics /></div>}   
         </AppBar>
     </Container>
     );

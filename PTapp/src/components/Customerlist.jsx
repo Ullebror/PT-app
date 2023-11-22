@@ -1,10 +1,12 @@
-import React, {
+import 
+{
     useState,
     useEffect,
     useCallback,
     useMemo,
     useRef,
-     } from 'react';
+} 
+from 'react';
 import { AgGridReact } from "ag-grid-react";
 
 import Box from '@mui/material/Box';
@@ -14,6 +16,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
+
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
@@ -39,7 +42,7 @@ function Customerlist() {
             })
             .catch(err => console.error(err));
         }
-    }
+    };
 
 
     const [columnDefs] = useState([
@@ -111,7 +114,7 @@ function Customerlist() {
 
     useEffect(() => {
         fetchCustomers();
-    },[])
+    },[]);
 
     const fetchCustomers = () => {
         fetch('https://traineeapp.azurewebsites.net/api/customers')
@@ -124,7 +127,7 @@ function Customerlist() {
         .then(responseData => setCustomers(responseData.content))
         .catch(err => console.error(err))
         
-    }
+    };
 
     
     const gridRef = useRef();
@@ -140,7 +143,8 @@ function Customerlist() {
    const paramsCsv = {
         columnKeys: ['firstname','lastname,','streetaddress','postcode', 'city','email','phone'],
         fileName: "Customers.csv"
-    }
+    };
+
     const exportCSV = useCallback(() => {
         gridRef.current.api.exportDataAsCsv(paramsCsv);
       }, []);
