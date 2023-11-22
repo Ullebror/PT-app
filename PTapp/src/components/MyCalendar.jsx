@@ -41,10 +41,6 @@ export default function MyCalendar() {
         .catch(err => console.error(err))
         
     }
-    
-    useEffect(() => {
-        console.log(events)
-    },[events])
  
     return (
         <div>
