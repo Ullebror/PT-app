@@ -9,7 +9,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
 
-export default function MyCalendar() {  
+function MyCalendar() {  
    const localizer = dayjsLocalizer(dayjs);
 
    const [events, setEvents] = useState([]);
@@ -64,3 +64,5 @@ export default function MyCalendar() {
     
 
 }
+
+export default MyCalendar;

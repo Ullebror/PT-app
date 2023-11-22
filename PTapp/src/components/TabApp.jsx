@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
+import Statistics from './Statistics';
 
 function TabApp() {
     const [value, setValue] = useState('one');
@@ -27,10 +28,12 @@ function TabApp() {
                 <Tab value="one" label="Customers" />
                 <Tab value="two" label="Trainings" />
                 <Tab value="three" label="Calendar" />
+                <Tab value="four" label="Statistics" />
             </Tabs>
             {value === 'one' &&  <div><Customerlist /></div>}
             {value === 'two' &&  <div> <Trainingslist /></div>}
             {value === 'three' &&  <div> <MyCalendar /></div>}
+            {value === 'four' &&  <div> <Statistics /></div>}
             
         </AppBar>
     </Container>
