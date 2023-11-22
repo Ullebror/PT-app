@@ -131,12 +131,6 @@ export default function EditCustomer({ customerdata, fetchCustomers }) {
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleSave}>Save</Button>
                 </DialogActions>
-                <Snackbar
-                    open={open}
-                    autoHideDuration={3000}
-                    onClose={() => setOpen(false)}
-                    message="Training deleted succesfully"
-                />
             </Dialog>
             
         
