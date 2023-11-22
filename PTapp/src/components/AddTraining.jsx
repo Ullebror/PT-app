@@ -98,14 +98,15 @@ export default function AddTraining({ customerdata }) {
                         <Button onClick={handleClose}>Cancel</Button>
                         <Button onClick={handleSave}>Save</Button>
                     </DialogActions>
+                    <Snackbar
+                        open={open}
+                        autoHideDuration={3000}
+                        onClose={() => setOpen(false)}
+                        message="Training added succesfully"
+                    />
                 </Dialog>
 
-                <Snackbar
-                open={open}
-                autoHideDuration={3000}
-                onClose={() => setOpen(false)}
-                message="Training added succesfully"
-            />
+                
             </LocalizationProvider>
         
         </>

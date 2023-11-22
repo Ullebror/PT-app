@@ -116,13 +116,14 @@ export default function AddCustomer({ fetchCustomers }) {
                     <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleSave}>Save</Button>
                 </DialogActions>
+                <Snackbar
+                    open={open}
+                    autoHideDuration={3000}
+                    onClose={() => setOpen(false)}
+                    message="Customer added succesfully"
+                />
             </Dialog>
-            <Snackbar
-                open={open}
-                autoHideDuration={3000}
-                onClose={() => setOpen(false)}
-                message="Customer added succesfully"
-            />
+            
         
         </>
     );
