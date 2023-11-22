@@ -8,6 +8,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import Snackbar from '@mui/material/Snackbar';
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -55,7 +56,6 @@ export default function AddTraining({ customerdata }) {
         .catch(err => console.error(err))
 
         handleClose();
-        alert("Training added successfully.");
     }
 
     return(
@@ -99,6 +99,13 @@ export default function AddTraining({ customerdata }) {
                         <Button onClick={handleSave}>Save</Button>
                     </DialogActions>
                 </Dialog>
+
+                <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={() => setOpen(false)}
+                message="Training added succesfully"
+            />
             </LocalizationProvider>
         
         </>

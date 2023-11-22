@@ -8,6 +8,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import Snackbar from '@mui/material/Snackbar';
 
 //Customerdata and fetchCustomers as props
 export default function EditCustomer({ customerdata, fetchCustomers }) {
@@ -131,6 +132,12 @@ export default function EditCustomer({ customerdata, fetchCustomers }) {
                     <Button onClick={handleSave}>Save</Button>
                 </DialogActions>
             </Dialog>
+            <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={() => setOpen(false)}
+                message="Training deleted succesfully"
+            />
         
         </>
     );

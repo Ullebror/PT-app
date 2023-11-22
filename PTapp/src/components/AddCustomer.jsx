@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
+import Snackbar from '@mui/material/Snackbar';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -44,7 +45,6 @@ export default function AddCustomer({ fetchCustomers }) {
         .catch(err => console.error(err))
 
         handleClose();
-        alert("Customer added successfully.");
     }
 
     return(
@@ -117,6 +117,12 @@ export default function AddCustomer({ fetchCustomers }) {
                     <Button onClick={handleSave}>Save</Button>
                 </DialogActions>
             </Dialog>
+            <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={() => setOpen(false)}
+                message="Customer added succesfully"
+            />
         
         </>
     );
