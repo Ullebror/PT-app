@@ -44,6 +44,7 @@ export default function AddCustomer({ fetchCustomers }) {
         .catch(err => console.error(err))
 
         handleClose();
+        alert("Customer added successfully.");
     }
 
     return(

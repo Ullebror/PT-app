@@ -55,6 +55,7 @@ export default function AddTraining({ customerdata }) {
         .catch(err => console.error(err))
 
         handleClose();
+        alert("Training added successfully.");
     }
 
     return(
