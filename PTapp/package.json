@@ -21,6 +21,7 @@
     "ag-grid-react": "^30.2.1",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.10",
+    "g": "^2.0.1",
     "gh-pages": "^6.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
