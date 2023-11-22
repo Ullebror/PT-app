@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AgGridReact } from "ag-grid-react";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import Typography from '@mui/material/Typography';
 
 import dayjs from 'dayjs';
 import Snackbar from '@mui/material/Snackbar';
@@ -46,6 +47,7 @@ function Trainingslist() {
             field: 'date', 
             sortable: true, 
             filter: true,
+
             //formats the value in the date column to that format
             valueFormatter: function (params) {
             return dayjs(params.value).format('DD.MM.YYYY HH:mm')
@@ -100,7 +102,11 @@ function Trainingslist() {
 
     return(
         <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <div className="" color="primary"> Search dates in YYYY-MM-DD format </div>
+            <Typography variant="body1" sx={{ color: 'info.main' }}>
+                Search dates in YYYY-MM-DD format
+
+            </Typography>
+            
             
             <div className='ag-theme-material' style={{ width: '100%', height: 600}}>
                 <AgGridReact
